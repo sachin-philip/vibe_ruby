@@ -6,7 +6,7 @@ module Vibe
 	def self.lookup(email, key)
 		response = Unirest.get "https://z1.vibeapp.co/api/v1/profile_lookup/", 
                         headers:{ "Accept" => "application/json" }, 
-                        parameters:{ :key => "15122308210236519658e8f", :person_email => "me@imsach.in" }
+                        parameters:{ :key => key, :person_email => email }
         return response.body
 	end
 
@@ -14,7 +14,7 @@ module Vibe
 	def self.stats(key)
 		response = Unirest.get "https://z1.vibeapp.co/api/v1/stats/", 
                         headers:{ "Accept" => "application/json" }, 
-                        parameters:{ :key => "15122308210236519658e8f"}
+                        parameters:{ :key => key}
         return response.body
 	end
 
